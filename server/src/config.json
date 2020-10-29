@@ -1,0 +1,11 @@
+{
+    "EXPRESS_SERVER_PORT": 3000,
+    "DB": {
+        "TYPE": "postgres",
+        "HOST": "localhost",
+        "PORT": 5432,
+        "USERNAME": "postgres",
+        "PASSWORD": "GCP1990",
+        "DATABASE": "postgres"
+    }
+}
