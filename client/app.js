@@ -3,6 +3,7 @@ var app = express();
 
 //Ejs for possible templating/server side rendering
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + '/public'));
 
 app.get("/", function(req, res) {
   res.render("pages/login");
