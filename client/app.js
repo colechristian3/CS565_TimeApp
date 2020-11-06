@@ -9,5 +9,9 @@ app.get("/", function(req, res) {
   res.render("pages/login");
 });
 
+app.get("/report", function(req, res) {
+  res.render("pages/reportPage");
+})
+
 app.listen(8080);
 console.log('webserver listening on port 8080');

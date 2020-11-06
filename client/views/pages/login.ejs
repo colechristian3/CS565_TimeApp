@@ -3,7 +3,7 @@
 
 <body>
     <header>
-        <%- include('../partials/header'); %>
+        <%- include('../partials/head'); %>
     </header>
 
     <head>
@@ -19,7 +19,6 @@
                             <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="/assets/login.png">
                             </div>
                             <h3 class="mb-0 text-center heading">Report App</h3>
-                            <h6 class="msg-info">Please login to your account</h6>
                             <div class="form-group"> <label class="form-control-label text-muted">Username</label>
                                 <input type="text" id="email" name="email" placeholder="you@youremail.com"
                                     class="form-control"> </div>
@@ -27,14 +26,15 @@
                                 <input type="password" id="password" name="password" placeholder="Password"
                                     class="form-control">
                             </div>
-                            <div class="row justify-content-center my-3 px-3"> <button class="btn-block btn-color">Login
+                            <div class="row justify-content-center my-3 px-3"> <button id="loginButton"
+                                    class="btn-block btn-color">Login
                                 </button> </div>
                             <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted">Forgot
                                         Password?</small></a> </div>
                         </div>
                     </div>
-                    <div class="bottom text-center mb-5">
-                        <p href="#" class="sm-text mx-auto mb-3">Don't have an account?<button
+                    <div class="bottom text-center pb-5">
+                        <p href="#" class="sm-text mx-auto">Don't have an account?<button
                                 class="btn btn-white ml-2">Create new</button></p>
                     </div>
                 </div>

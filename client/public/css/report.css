@@ -1,0 +1,11 @@
+@media (min-width: 1200px) {
+    .container{
+        max-width: 88vw;
+        margin-top: 5vh;
+    }
+}
+
+.tableHead {
+    background-color: #b7b7b7;
+    color:black
+}
