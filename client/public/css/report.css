@@ -9,3 +9,43 @@
     background-color: #b7b7b7;
     color:black
 }
+
+table {
+    height: 1px;
+}
+
+.dateCell {
+    display: flex;
+    padding: 0!important;
+    height: 100%;
+}
+
+.dateDay {
+    display: flex;
+    color: white;
+    background-color: #037c8a;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 0.5em;
+}
+
+.dateFormat {
+    display: flex;
+    align-items: center;
+    text-align: center!important;
+    padding-right: 0.3em;
+}
+
+tr {
+    text-align: center;
+}
+
+.totals {
+    color: white;
+    background-color: #037c8a;
+}
+
+.editLink {
+    color: #b40e78;
+}
