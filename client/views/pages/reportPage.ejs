@@ -30,7 +30,7 @@
                 <% if(i % 2 === 0) {%>
                 <tr>
                     <% } else {%>
-                <tr style="background-color: #f3f3f3;">
+                <tr class="offColor" style="background-color: #f3f3f3;">
                     <% } %>
                     <td class="dateCell">
                         <div class="dateDay">
@@ -50,10 +50,10 @@
                 </tr>
                 <% } %>
                 <tr style="border-bottom-style: hidden; border-left-style: hidden;">
-                    <td>
+                    <td class="hideTd">
                     </td>
-                    <td style="border-left-style: hidden; border-right-style: hidden;"></td>
-                    <td></td>
+                    <td class="hideTd" style="border-left-style: hidden; border-right-style: hidden;"></td>
+                    <td class="hideTd"></td>
                     <td class="totals">
                         Totals</td>
                     <td class="totals">40.00</td>

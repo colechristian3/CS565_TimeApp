@@ -49,3 +49,7 @@ tr {
 .editLink {
     color: #b40e78;
 }
+
+.hideTd {
+    background-color: white;
+}
