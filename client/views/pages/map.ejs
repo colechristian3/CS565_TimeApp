@@ -8,24 +8,37 @@
 
     <head>
         <link rel="stylesheet" type="text/css" href="/css/map.css">
-        <script src="/js/login.js"></script>
+        <script src="/js/map.js"></script>
 
     </head>
     <div style="display: flex; justify-content: center;">
         <div id="map" style="position: absolute !important; width: 80vw; height: 80vh; top: 10vh;"></div>
     </div>
     <script>
+       
         var portland = { lat: 45.514401, lng: -122.670041 };
         function initMap() {
+            if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(updateMap)
+    } else {
+    alert("Geolocation is not supported by this browser.")
+    }
             var map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 11,
                 center: portland,
             });
+            function updateMap(position){
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+            map: map,
+            icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          });
+    }
         }
-
+   
     </script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=(put a valid api key here or ask joe)&callback=initMap"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL7xFobhgO60YdLjXb87UxHAgJCff8HNw&callback=initMap"></script>
 </body>
 
 </html>
