@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/map.css">
+        <script src="/js/login.js"></script>
+
+    </head>
+    <div style="display: flex; justify-content: center;">
+        <div id="map" style="position: absolute !important; width: 80vw; height: 80vh; top: 10vh;"></div>
+    </div>
+    <script>
+        var portland = { lat: 45.514401, lng: -122.670041 };
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 11,
+                center: portland,
+            });
+        }
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=(put a valid api key here or ask joe)&callback=initMap"></script>
+</body>
+
+</html>

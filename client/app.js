@@ -13,5 +13,9 @@ app.get("/report", function(req, res) {
   res.render("pages/reportPage");
 })
 
+app.get("/map", function(req, res) {
+  res.render("pages/map");
+})
+
 app.listen(8080);
 console.log('webserver listening on port 8080');
