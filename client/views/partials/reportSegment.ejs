@@ -1,0 +1,53 @@
+<table class="table table-hover table-bordered">
+    <thead class="tableHead">
+        <tr>
+            <th style="width: 10%" scope="col">Date</th>
+            <th scope="col">Job/Absence</th>
+            <th scope="col">In</th>
+            <th scope="col">Out</th>
+            <th scope="col">Reg</th>
+            <th scope="col">OT</th>
+            <th scope="col">Total</th>
+            <th scope="col">Gross Pay</th>
+            <th style="width: 10%" scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0; i < 3; ++i) {%>
+        <% if(i % 2 === 0) {%>
+        <tr>
+            <% } else {%>
+        <tr class="offColor">
+            <% } %>
+            <td class="dateCell">
+                <div class="dateDay">
+                    Sun
+                </div>
+                <div class="dateFormat">
+                    11/5/2020</div>
+            </td>
+            <td>sometime</td>
+            <td>Othertime</td>
+            <td>24</td>
+            <td>30</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td><a class="editLink" href=#>Request Edit</a></td>
+        </tr>
+        <% } %>
+        <tr style="border-bottom-style: hidden; border-left-style: hidden;">
+            <td class="hideTd">
+            </td>
+            <td class="hideTd" style="border-left-style: hidden; border-right-style: hidden;"></td>
+            <td class="hideTd"></td>
+            <td class="totals">
+                Totals</td>
+            <td class="totals">40.00</td>
+            <td class="totals">30.00</td>
+            <td class="totals">24.00</td>
+            <td class="totals">36.00</td>
+            <td class="totals"><a href=#></a></td>
+        </tr>
+    </tbody>
+</table>

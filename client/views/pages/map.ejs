@@ -12,30 +12,37 @@
 
     </head>
     <div style="display: flex; justify-content: center;">
-        <div id="map" style="position: absolute !important; width: 80vw; height: 80vh; top: 10vh;"></div>
+        <div id="map" style="position: relative!important; width: 75vw; height: 80vh; top: 5vh;"></div>
     </div>
     <script>
-       
+
         var portland = { lat: 45.514401, lng: -122.670041 };
         function initMap() {
             if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(updateMap)
-    } else {
-    alert("Geolocation is not supported by this browser.")
-    }
+                navigator.geolocation.getCurrentPosition(updateMap)
+            } else {
+                alert("Geolocation is not supported by this browser.")
+            }
             var map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 11,
                 center: portland,
             });
-            function updateMap(position){
-        marker = new google.maps.Marker({
-            position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-            map: map,
-            icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          });
-    }
+
+            function updateMap(position) {
+                var mapOptions = {
+                    /* Initial zoom level */
+                    zoom: 15,
+                    center: { lat: position.coords.latitude, lng: position.coords.longitude }
+                };
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                    map: map,
+                    icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                });
+                map.setOptions(mapOptions)
+            }
         }
-   
+
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL7xFobhgO60YdLjXb87UxHAgJCff8HNw&callback=initMap"></script>

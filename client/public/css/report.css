@@ -20,6 +20,11 @@ table {
     height: 100%;
 }
 
+.summaryCell {
+    display: flex;
+    padding: 0!important;
+}
+
 .dateDay {
     display: flex;
     color: white;
@@ -30,11 +35,20 @@ table {
     margin-right: 0.5em;
 }
 
-.dateFormat {
+.summaryKey {
     display: flex;
+    color: white;
+    background-color: #037c8a;
     align-items: center;
-    text-align: center!important;
-    padding-right: 0.3em;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 0.5em;
+    width: 10em;
+}
+
+.dateFormat {
+    display: table;
+    margin: auto;
 }
 
 tr {
@@ -52,4 +66,64 @@ tr {
 
 .hideTd {
     background-color: white;
+}
+
+.excelButton {
+    background-color: #037c8a;
+    border-color: #037c8a;
+    color: white
+}
+
+.excelButton:hover {
+    background-color: white;
+    color: #037c8a;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #037c8a;
+}
+
+.saveChanges:focus{
+    box-shadow: 0 0 5px #999999 !important;
+    border: 1px solid #999999 !important;
+}
+
+
+input[type="text"]:focus, .excelButton:focus {
+    box-shadow: 0 0 5px #037c8a !important;
+    border: 1px solid #037c8a !important;
+}
+
+span {
+    font-weight: 500;
+    padding-top: 0.5em
+}
+
+.saveChanges {
+    background-color: #999999;
+    color:white;
+    border-color: #999999;
+}
+
+.saveChanges:hover{
+    background-color: white;
+    color: #999999;
+    border-color: #999999;
+    font-weight: 600;
+}
+
+.summaryHead {
+    padding: 1em;
+    color: white;
+    font-weight: 400;
+    font-size: 1.7em;
+    text-align: left;
+    background-color: #037c8a;
+}
+
+.summaryTable {
+    width: 20vw;
+}
+
+.offColor {
+    background-color:  #f3f3f3;
 }
