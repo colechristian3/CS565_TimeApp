@@ -5,6 +5,7 @@
     }
 }
 
+
 .tableHead {
     background-color: #b7b7b7;
     color:black
@@ -127,3 +128,10 @@ span {
 .offColor {
     background-color:  #f3f3f3;
 }
+
+
+@media only screen and (max-width: 1024px) {
+    .response {
+      margin-top: 5vh!important;
+    }
+  }
