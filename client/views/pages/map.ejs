@@ -9,6 +9,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="/css/map.css">
         <script src="/js/map.js"></script>
+        <script src="/js/date-and-time.min.js"></script>
 
     </head>
     <div class="container" style="display: flex; justify-content: center;">
@@ -33,8 +34,8 @@
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <div style="display: flex; flex-direction: row; align-items: center;">
-                    <div style="font-size: large; color: grey; align-items: flex-start;">
-                        10:30:12 AM
+                    <div id="time" style="font-size: large; color: grey; align-items: flex-start;">
+                        <%= time %>
                     </div>
                     <div>
                         <button id="clockIn" type="button" class="btn btn-md excelButton"

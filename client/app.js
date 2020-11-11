@@ -5,6 +5,7 @@ var app = express();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
+const date = require('date-and-time')
 const bcrypt = require('bcrypt')
 
 
@@ -22,7 +23,8 @@ app.get("/report", function(req, res) {
 })
 
 app.get("/map", function(req, res) {
-  res.render("pages/map");
+  var currentTime = date.format(new Date(), 'hh:mm:ss A')
+  res.render("pages/map", {time: currentTime});
 })
 
 app.post("/login-check", function(req, res) {
