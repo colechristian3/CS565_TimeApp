@@ -5,11 +5,13 @@ var app = express();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
+const bcrypt = require('bcrypt')
 
 
 //Ejs for possible templating/server side rendering
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
+app.use(require("body-parser").json());
 
 app.get("/", function(req, res) {
   res.render("pages/login");
@@ -21,6 +23,14 @@ app.get("/report", function(req, res) {
 
 app.get("/map", function(req, res) {
   res.render("pages/map");
+})
+
+app.post("/login-check", function(req, res) {
+  const username = req.body.username
+  const password = req.body.password
+  //This is where the database will be called and bcrypt compare issued to see if login was valid. Also will asign session token
+  //if login was good
+  res.json("200")
 })
 
 app.get("/message", function(req, res) {
