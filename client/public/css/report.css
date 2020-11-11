@@ -30,9 +30,8 @@ table {
     color: white;
     background-color: #037c8a;
     align-items: center;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-right: 0.5em;
+    justify-content: center;
+    width: 3.8em
 }
 
 .summaryKey {

@@ -18,10 +18,14 @@
     <%- include('../partials/jobTabFilter') %>
 
     <div class="container">
-        <!-- Here is an example of how we cam pass an array of time card objects to the report from express: include('../partials/reportSegment', {data: someObject}) -->
+        <%
+            for (var i =0; i < 2;  i++ ) { %>
         <%- include('../partials/reportSegment') %>
+        <% }
+            %>
+        <!-- Here is an example of how we cam pass an array of time card objects to the report from express: include('../partials/reportSegment', {data: someObject}) -->
     </div>
-    <div class="container" style="margin-top: 3em;">
+    <div class="container" style="margin-top: 3em; margin-bottom: 5em">
         <div class="row">
             <div class="col-3 table-responsive">
                 <%- include('../partials/reportSummary') %>

@@ -1,4 +1,4 @@
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered pb-0 mb-0">
     <thead class="tableHead">
         <tr>
             <th style="width: 10%" scope="col">Date</th>
@@ -13,7 +13,9 @@
         </tr>
     </thead>
     <tbody>
-        <% for(var i=0; i < 3; ++i) {%>
+        <%
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            for(var i=0; i < days.length; ++i) {%>
         <% if(i % 2 === 0) {%>
         <tr>
             <% } else {%>
@@ -21,7 +23,7 @@
             <% } %>
             <td class="dateCell">
                 <div class="dateDay">
-                    Sun
+                    <%= days[i] %>
                 </div>
                 <div class="dateFormat">
                     11/5/2020</div>
