@@ -11,8 +11,38 @@
         <script src="/js/map.js"></script>
 
     </head>
-    <div style="display: flex; justify-content: center;">
-        <div id="map" style="position: relative!important; width: 75vw; height: 80vh; top: 5vh;"></div>
+    <div class="container" style="display: flex; justify-content: center;">
+        <div id="map" style="position: relative!important; width: 75vw; height: 80vh; top: 5vh; margin-bottom: 7vh;">
+        </div>
+    </div>
+    <div class="container">
+        <form>
+
+            <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Select Job</option>
+                    <option>Job 1</option>
+                    <option>Job 2</option>
+                    <option>Job 3</option>
+                    <option>Job 4</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="form-group col-6" style="margin-right: 10em;">
+                    <label for="exampleFormControlTextarea1">Notes</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div style="display: flex; flex-direction: row; align-items: center;">
+                    <div style="font-size: large; color: grey; align-items: flex-start;">
+                        10:30:12 AM
+                    </div>
+                    <div>
+                        <button id="clockIn" type="button" class="btn btn-md excelButton"
+                            style="width: 10em; margin-left: 1em">CLOCK IN</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
     <script>
 

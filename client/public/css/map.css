@@ -1,0 +1,13 @@
+.excelButton {
+    background-color: #037c8a;
+    border-color: #037c8a;
+    color: white
+}
+
+.excelButton:hover {
+    background-color: white;
+    color: #037c8a;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #037c8a;
+}
