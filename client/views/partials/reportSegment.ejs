@@ -24,16 +24,16 @@
                     <%= days[i] %>
                 </div>
                 <div class="dateFormat">
-                    11/5/2020</div>
+                    <%= period[i].date %></div>
             </td>
-            <td>sometime</td>
-            <td>Othertime</td>
-            <td>24</td>
-            <td>30</td>
-            <td>24</td>
-            <td>24</td>
-            <td>24</td>
-            <td><a class="editLink" href=#>Request Edit</a></td>
+            <td><%= period[i].job %></td>
+            <td><%= period[i].in %></td>
+            <td><%= period[i].out %></td>
+            <td><%= period[i].reg %></td>
+            <td><%= period[i].ot %></td>
+            <td><%= period[i].total %></td>
+            <td><%= period[i].grossPay %></td>
+            <td id=<%= period[i].date %>><a class="editLink" href=#>Request Edit</a></td>
         </tr>
         <% } %>
         <tr style="border-bottom-style: hidden; border-left-style: hidden;">
@@ -43,10 +43,10 @@
             <td class="hideTd"></td>
             <td class="totals">
                 Totals</td>
-            <td class="totals">40.00</td>
-            <td class="totals">30.00</td>
-            <td class="totals">24.00</td>
-            <td class="totals">36.00</td>
+            <td class="totals"><%= period[period.length-1].totalHours %></td>
+            <td class="totals"><%= period[period.length-1].totalOT %></td>
+            <td class="totals"><%= period[period.length-1].totalCombined %></td>
+            <td class="totals"><%= period[period.length-1].totalPay %></td>
             <td class="totals"><a href=#></a></td>
         </tr>
     </tbody>

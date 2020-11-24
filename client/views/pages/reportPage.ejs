@@ -19,8 +19,8 @@
 
     <div class="container response">
         <%
-            for (var i =0; i < 2;  i++ ) { %>
-        <%- include('../partials/reportSegment') %>
+            for (var i =0; i < data.payHistory.length;  i++ ) { %>
+        <%- include('../partials/reportSegment', {period: data.payHistory[i]}) %>
         <% }
             %>
         <!-- Here is an example of how we cam pass an array of time card objects to the report from express: include('../partials/reportSegment', {data: someObject}) -->
