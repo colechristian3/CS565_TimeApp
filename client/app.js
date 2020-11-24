@@ -14,6 +14,8 @@ var mockData =
   firstName: "Dan",
   lastName: "Ryan",
   isClockedIn: false,
+  currentClockinTime: null,
+  lastClockOutTime: null,
   currentLocation: {
     longitude: 124.1515,
     latitude: 241.10581
@@ -133,6 +135,9 @@ var mockData =
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 app.use(require("body-parser").json());
+app.use(express.urlencoded({
+  extended: true
+}))
 
 app.get("/", function (req, res) {
   res.render("pages/login");
@@ -144,7 +149,14 @@ app.get("/report", function (req, res) {
 
 app.get("/map", function (req, res) {
   var currentTime = date.format(new Date(), 'hh:mm:ss A')
-  res.render("pages/map", { time: currentTime });
+  res.render("pages/map", { time: currentTime, data: mockData });
+})
+
+app.post("/clock-in", function (req, res) {
+  var currentTime = date.format(new Date(), 'hh:mm:ss A')
+  mockData.isClockedIn = true
+  mockData.currentClockinTime = currentTime
+  res.render("pages/map", { time: currentTime, data: mockData })
 })
 
 app.post("/login-check", function (req, res) {

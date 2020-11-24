@@ -17,28 +17,26 @@
         </div>
     </div>
     <div class="container">
-        <form>
-
+        <form action="/clock-in" method="POST">
             <div class="form-group">
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Select Job</option>
-                    <option>Job 1</option>
-                    <option>Job 2</option>
-                    <option>Job 3</option>
-                    <option>Job 4</option>
+                <select class="form-control" id="exampleFormControlSelect1" name="job" required>
+                    <option value="" disabled selected>Select your option</option>
+                    <% for(var i=0; i < data.jobs.length; ++i) {%>
+                    <option><%= data.jobs[i].name %></option>
+                    <% } %>
                 </select>
             </div>
             <div class="row">
                 <div class="form-group col-6" style="margin-right: 10em;">
                     <label for="exampleFormControlTextarea1">Notes</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="notes"></textarea>
                 </div>
                 <div style="display: flex; flex-direction: row; align-items: center;">
                     <div id="time" style="font-size: large; color: grey; align-items: flex-start;">
                         <%= time %>
                     </div>
                     <div>
-                        <button id="clockIn" type="button" class="btn btn-md excelButton"
+                        <button id="clockIn" type="submit" class="btn btn-md excelButton"
                             style="width: 10em; margin-left: 1em">CLOCK IN</button>
                     </div>
                 </div>
