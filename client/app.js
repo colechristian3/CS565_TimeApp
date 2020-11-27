@@ -18,9 +18,10 @@ var mockData =
   currentClockInTime: null,
   clockInTimeObj: null,
   lastClockOutTime: null,
+  badDistance: false,
   currentLocation: {
-    longitude: 124.1515,
-    latitude: 241.10581
+    lng: 124.1515,
+    lat: 241.10581
   },
   currentJob: null,
   email: "someemail@gmail.com",
@@ -35,8 +36,10 @@ var mockData =
         city: "Portland",
         state: "OR",
         zip: "97215",
-        longitude: 124.10555,
-        latitude: 241.020202
+        coords: {
+          lng: -122.6537251,
+          lat: 45.5048588
+        }
       }
     },
     {
@@ -48,8 +51,10 @@ var mockData =
         city: "Portland",
         state: "OR",
         zip: "97215",
-        longitude: 124.10555,
-        latitude: 241.020202
+        coords: {
+          lng: 124.10555,
+          lat: 241.020202
+        }
       }
     }
   ],
@@ -141,9 +146,21 @@ async function sendTextMessage(number, message) {
     .create({
       body: message,
       from: '+13158185951',
-      to: '+19713376569'
+      to: number
     })
     .then(message => console.log(message.sid));
+}
+
+//From google docs on calculating straight line distance given two positions
+function distance(loc1, loc2) {
+  var R = 3958.8; // Radius of the Earth in miles
+  var rlat1 = loc1.lat * (Math.PI / 180); // Convert degrees to radians
+  var rlat2 = loc2.lat * (Math.PI / 180); // Convert degrees to radians
+  var difflat = rlat2 - rlat1; // Radian difference (latitudes)
+  var difflon = (loc2.lng - loc1.lng) * (Math.PI / 180); // Radian difference (longitudes)
+
+  var d = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2) + Math.cos(rlat1) * Math.cos(rlat2) * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
+  return d;
 }
 
 //Ejs for possible templating/server side rendering
@@ -169,14 +186,26 @@ app.get("/map", function (req, res) {
 })
 
 app.post("/clock-in", function (req, res) {
-  console.log(req.cookies)
-  var currentTime = new Date()
-  var inTime = date.format(currentTime, 'hh:mm:ss A')
-  mockData.clockInTimeObj = currentTime
-  mockData.isClockedIn = true
-  mockData.currentClockInTime = inTime
-  mockData.currentJob = req.body.job
-  res.render("pages/map", { time: inTime, data: mockData, worked: null })
+  mockData.currentLocation.lng = req.cookies.lng
+  mockData.currentLocation.lat = req.cookies.lat
+  var selectedJob = mockData.jobs.filter(job => job.name === req.body.job)
+  var dist = distance(selectedJob[0].location.coords, mockData.currentLocation)
+
+  if (dist > 2) {
+    mockData.badDistance = true
+    res.render("pages/map", { time: inTime, data: mockData, worked: null })
+  }
+  else {
+    mockData.badDistance = false
+    var currentTime = new Date()
+    var inTime = date.format(currentTime, 'hh:mm:ss A')
+    mockData.clockInTimeObj = currentTime
+    mockData.isClockedIn = true
+    mockData.currentClockInTime = inTime
+    mockData.currentJob = req.body.job
+    res.render("pages/map", { time: inTime, data: mockData, worked: null })
+  }
+
 })
 
 app.post("/clock-out", function (req, res) {

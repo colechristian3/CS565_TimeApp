@@ -4,7 +4,6 @@ $(document).ready(function () {
   timeInterval = setInterval(function () {
     var currentTime = date.format(new Date(), 'hh:mm:ss A')
     time.text(currentTime)
-    console.log(timer)
   }, 1000)
 
   $(document).blur(function () {

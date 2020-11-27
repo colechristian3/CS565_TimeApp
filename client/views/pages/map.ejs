@@ -17,10 +17,30 @@
         </div>
     </div>
     <div class="container">
+        <div class="modal" role="dialog" id="distanceModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Issue Clocking In</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>It appears that you are trying to clock in at a job that you are not currently at. Please
+                            make
+                            sure the correct job has been selected and that you are onsite.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <% var inOut = "/clock-in"; if( data.isClockedIn ) { inOut = "/clock-out" } %>
         <form action=<%= inOut %> method="POST">
             <div class="form-group">
-                <% var job = "Select your option"; var disabled = ""; if ( data.isClockedIn ) { job = data.currentJob; disabled = "disabled" } %>
+                <% var job = "Select your job"; var disabled = ""; if ( data.isClockedIn ) { job = data.currentJob; disabled = "disabled" } %>
                 <select class="form-control" id="exampleFormControlSelect1" name="job" required <%= disabled %>>
                     <option value="" disabled selected><%= job %></option>
                     <% for(var i=0; i < data.jobs.length; ++i) {%>
@@ -73,8 +93,8 @@
             });
 
             function updateMap(position) {
-                document.cookie = `lat=${position.coords.latitude} path=/;`
-                document.cookie = `long=${position.coords.longitude} path=/;`
+                document.cookie = `lat=${position.coords.latitude};`
+                document.cookie = `lng=${position.coords.longitude};`
                 var mapOptions = {
                     /* Initial zoom level */
                     zoom: 15,
@@ -88,7 +108,17 @@
                 map.setOptions(mapOptions)
             }
         }
-
+        var dist = `<%= data.badDistance %>`
+        if (dist === "true") {
+            dist = true
+        }
+        else {
+            dist = false
+        }
+        console.log(dist)
+        if (dist) {
+            $("#distanceModal").modal('show')
+        }
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL7xFobhgO60YdLjXb87UxHAgJCff8HNw&callback=initMap"></script>
