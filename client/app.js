@@ -136,19 +136,86 @@ var mockData =
         totalOT: 0,
         totalCombined: 56
       }
+    ],
+    [
+      {
+        date: "11/8/2020",
+        job: "The gig 1",
+        in: "12:30 PM",
+        out: "8:30 PM",
+        reg: 8,
+        ot: 0,
+        total: 8,
+        grossPay: 194.00
+      },
+      {
+        date: "11/9/2020",
+        job: "The gig 1",
+        in: "12:30 PM",
+        out: "8:30 PM",
+        reg: 8,
+        ot: 0,
+        total: 8,
+        grossPay: 194.00
+      },
+      {
+        date: "11/10/2020",
+        job: "The gig 1",
+        in: "12:30 PM",
+        out: "8:30 PM",
+        reg: 8,
+        ot: 0,
+        total: 8,
+        grossPay: 194.00
+      },
+      {
+        date: "11/11/2020",
+        job: "The gig 1",
+        in: "12:30 PM",
+        out: "8:30 PM",
+        reg: 8,
+        ot: 0,
+        total: 8,
+        grossPay: 194.00
+      },
+      {
+        date: "11/12/2020",
+        job: "The gig 1",
+        in: "12:30 PM",
+        out: "8:30 PM",
+        reg: 8,
+        ot: 0,
+        total: 8,
+        grossPay: 194.00
+      },
+      {
+        date: "11/13/2020",
+        job: "The gig 1",
+        in: "12:30 PM",
+        out: "8:30 PM",
+        reg: 8,
+        ot: 0,
+        total: 8,
+        grossPay: 194.00
+      },
+      {
+        date: "11/14/2020",
+        job: "The gig 1",
+        in: "12:30 PM",
+        out: "8:30 PM",
+        reg: 8,
+        ot: 0,
+        total: 8,
+        grossPay: 194.00
+      },
+      totals = {
+        totalPay: "1359.00",
+        totalHours: 56,
+        totalOT: 0,
+        totalCombined: 56
+      }
     ]
   ]
-}
-
-async function sendTextMessage(number, message) {
-  //twilio sms message example, sends me (joe) a text message
-  client.messages
-    .create({
-      body: message,
-      from: '+13158185951',
-      to: number
-    })
-    .then(message => console.log(message.sid));
 }
 
 //From google docs on calculating straight line distance given two positions
