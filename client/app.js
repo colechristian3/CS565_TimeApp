@@ -6,6 +6,7 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 const date = require('date-and-time')
+const cookieParser = require("cookie-parser");
 const bcrypt = require('bcrypt')
 
 var mockData =
@@ -15,6 +16,7 @@ var mockData =
   lastName: "Ryan",
   isClockedIn: false,
   currentClockInTime: null,
+  clockInTimeObj: null,
   lastClockOutTime: null,
   currentLocation: {
     longitude: 124.1515,
@@ -22,7 +24,7 @@ var mockData =
   },
   currentJob: null,
   email: "someemail@gmail.com",
-  phoneNumber: "503-214-1521",
+  phoneNumber: "+19713376569",
   jobs: [
     {
       id: "13001755210489",
@@ -133,6 +135,16 @@ var mockData =
   ]
 }
 
+async function sendTextMessage(number, message) {
+  //twilio sms message example, sends me (joe) a text message
+  client.messages
+    .create({
+      body: message,
+      from: '+13158185951',
+      to: '+19713376569'
+    })
+    .then(message => console.log(message.sid));
+}
 
 //Ejs for possible templating/server side rendering
 app.set("view engine", "ejs");
@@ -141,6 +153,7 @@ app.use(require("body-parser").json());
 app.use(express.urlencoded({
   extended: true
 }))
+app.use(cookieParser());
 
 app.get("/", function (req, res) {
   res.render("pages/login");
@@ -152,15 +165,29 @@ app.get("/report", function (req, res) {
 
 app.get("/map", function (req, res) {
   var currentTime = date.format(new Date(), 'hh:mm:ss A')
-  res.render("pages/map", { time: currentTime, data: mockData });
+  res.render("pages/map", { time: currentTime, data: mockData, worked: null });
 })
 
 app.post("/clock-in", function (req, res) {
-  var currentTime = date.format(new Date(), 'hh:mm:ss A')
+  console.log(req.cookies)
+  var currentTime = new Date()
+  var inTime = date.format(currentTime, 'hh:mm:ss A')
+  mockData.clockInTimeObj = currentTime
   mockData.isClockedIn = true
-  mockData.currentClockInTime = currentTime
+  mockData.currentClockInTime = inTime
   mockData.currentJob = req.body.job
-  res.render("pages/map", { time: currentTime, data: mockData })
+  res.render("pages/map", { time: inTime, data: mockData, worked: null })
+})
+
+app.post("/clock-out", function (req, res) {
+  var currentTime = new Date()
+  var outTime = date.format(currentTime, 'hh:mm:ss A')
+  var hoursWorked = date.subtract(currentTime, mockData.clockInTimeObj)
+  mockData.isClockedIn = false
+  mockData.currentClockInTime = null
+  mockData.currentJob = null
+  mockData.lastClockOutTime = currentTime
+  res.render("pages/map", { time: outTime, data: mockData, worked: { hours: Number(hoursWorked.toHours()).toFixed(2) } })
 })
 
 app.post("/login-check", function (req, res) {

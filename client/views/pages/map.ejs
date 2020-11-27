@@ -20,8 +20,9 @@
         <% var inOut = "/clock-in"; if( data.isClockedIn ) { inOut = "/clock-out" } %>
         <form action=<%= inOut %> method="POST">
             <div class="form-group">
-                <select class="form-control" id="exampleFormControlSelect1" name="job" required>
-                    <option value="" disabled selected>Select your option</option>
+                <% var job = "Select your option"; var disabled = ""; if ( data.isClockedIn ) { job = data.currentJob; disabled = "disabled" } %>
+                <select class="form-control" id="exampleFormControlSelect1" name="job" required <%= disabled %>>
+                    <option value="" disabled selected><%= job %></option>
                     <% for(var i=0; i < data.jobs.length; ++i) {%>
                     <option><%= data.jobs[i].name %></option>
                     <% } %>
@@ -37,6 +38,11 @@
                         <%= time %>
                     </div>
                     <div style="text-align: center;">
+                        <% if( worked ) {%>
+                        <div>
+                            Worked <%= worked.hours %> hours.
+                        </div>
+                        <%}%>
                         <% if( !data.isClockedIn ) {%>
                         <button id="clockIn" type="submit" class="btn btn-md excelButton"
                             style="width: 10em; margin-left: 1em">CLOCK IN</button>
@@ -67,6 +73,8 @@
             });
 
             function updateMap(position) {
+                document.cookie = `lat=${position.coords.latitude} path=/;`
+                document.cookie = `long=${position.coords.longitude} path=/;`
                 var mapOptions = {
                     /* Initial zoom level */
                     zoom: 15,
