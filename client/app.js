@@ -14,12 +14,15 @@ var mockData =
   firstName: "Dan",
   lastName: "Ryan",
   isClockedIn: false,
-  currentClockinTime: null,
+  currentClockInTime: null,
   lastClockOutTime: null,
   currentLocation: {
     longitude: 124.1515,
     latitude: 241.10581
   },
+  currentJob: null,
+  email: "someemail@gmail.com",
+  phoneNumber: "503-214-1521",
   jobs: [
     {
       id: "13001755210489",
@@ -155,7 +158,8 @@ app.get("/map", function (req, res) {
 app.post("/clock-in", function (req, res) {
   var currentTime = date.format(new Date(), 'hh:mm:ss A')
   mockData.isClockedIn = true
-  mockData.currentClockinTime = currentTime
+  mockData.currentClockInTime = currentTime
+  mockData.currentJob = req.body.job
   res.render("pages/map", { time: currentTime, data: mockData })
 })
 
