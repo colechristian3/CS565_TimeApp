@@ -200,9 +200,21 @@ app.post("/clock-in", function (req, res) {
     var currentTime = new Date()
     var inTime = date.format(currentTime, 'hh:mm:ss A')
     mockData.clockInTimeObj = currentTime
-    mockData.isClockedIn = true
     mockData.currentClockInTime = inTime
-    mockData.currentJob = req.body.job
+    mockData.currentJob = selectedJob[0]
+
+    if (!mockData.isClockedIn) {
+      mockData.isClockedIn = true
+      message = `You have been successfully clocked-in at ${inTime} for ${selectedJob[0].name}.`
+      client.messages
+        .create({
+          body: message,
+          from: '+13158185951',
+          to: mockData.phoneNumber
+        })
+        .then(message => console.log(message.sid));
+    }
+
     res.render("pages/map", { time: inTime, data: mockData, worked: null })
   }
 
@@ -214,8 +226,20 @@ app.post("/clock-out", function (req, res) {
   var hoursWorked = date.subtract(currentTime, mockData.clockInTimeObj)
   mockData.isClockedIn = false
   mockData.currentClockInTime = null
-  mockData.currentJob = null
   mockData.lastClockOutTime = currentTime
+
+  if (mockData.currentJob) {
+    message = `You have been successfully clocked-out for ${mockData.currentJob.name}.`
+    mockData.currentJob = null
+    client.messages
+      .create({
+        body: message,
+        from: '+13158185951',
+        to: mockData.phoneNumber
+      })
+      .then(message => console.log(message.sid));
+  }
+
   res.render("pages/map", { time: outTime, data: mockData, worked: { hours: Number(hoursWorked.toHours()).toFixed(2) } })
 })
 
@@ -227,17 +251,6 @@ app.post("/login-check", function (req, res) {
   res.json("200")
 })
 
-app.get("/message", function (req, res) {
-  //twilio sms message example, sends me (joe) a text message
-  client.messages
-    .create({
-      body: 'Hey we can send people sms messages!',
-      from: '+13158185951',
-      to: '+19713376569'
-    })
-    .then(message => console.log(message.sid));
-  res.render("pages/login");
-})
 
 app.listen(8080);
 console.log('webserver listening on port 8080');

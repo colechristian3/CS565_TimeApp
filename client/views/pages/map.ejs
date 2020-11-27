@@ -40,7 +40,7 @@
         <% var inOut = "/clock-in"; if( data.isClockedIn ) { inOut = "/clock-out" } %>
         <form action=<%= inOut %> method="POST">
             <div class="form-group">
-                <% var job = "Select your job"; var disabled = ""; if ( data.isClockedIn ) { job = data.currentJob; disabled = "disabled" } %>
+                <% var job = "Select your job"; var disabled = ""; if ( data.isClockedIn ) { job = data.currentJob.name; disabled = "disabled" } %>
                 <select class="form-control" id="exampleFormControlSelect1" name="job" required <%= disabled %>>
                     <option value="" disabled selected><%= job %></option>
                     <% for(var i=0; i < data.jobs.length; ++i) {%>
@@ -68,7 +68,7 @@
                             style="width: 10em; margin-left: 1em">CLOCK IN</button>
                         <% } else { %>
                         <div style="max-width: fit-content;">
-                            Clocked In to <%= data.currentJob %> at <%= data.currentClockInTime %>.
+                            Clocked In to <%= data.currentJob.name %> at <%= data.currentClockInTime %>.
                         </div>
                         <button id="clockOut" type="submit" class="btn btn-md excelButton"
                             style="width: 10em; margin-left: 1em">CLOCK OUT</button>
