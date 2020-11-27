@@ -18,14 +18,16 @@
                         <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="/assets/login.png">
                         </div>
                         <h3 class="mb-0 text-center heading">Report App</h3>
-                        <div class="form-group"> <label class="form-control-label text-muted">Username</label>
-                            <input type="text" id="username" name="email" placeholder="you@youremail.com"
-                                class="form-control"> </div>
-                        <div class="form-group"> <label class="form-control-label text-muted">Password</label>
-                            <input type="password" id="password" name="password" placeholder="Password"
-                                class="form-control">
+                        <div style="color:red; text-align: center;" id="badAttempt"></div>
+                        <div class="form-group"> <label class="checker form-control-label text-muted">Username</label>
+                            <input data-toggle="tooltip" data-placement="top" title="Username required" type="text"
+                                id="username" name="email" placeholder="you@youremail.com" class="form-control" />
                         </div>
-                        <div class="row justify-content-center my-3 px-3"> <button id="loginButton"
+                        <div class="form-group"> <label class="checker form-control-label text-muted">Password</label>
+                            <input data-toggle="tooltip" data-placement="top" title="Password required" type="password"
+                                id="password" name="password" placeholder="Password" class="form-control" />
+                        </div>
+                        <div class="row justify-content-center my-3 px-3"> <button type="submit" id="loginButton"
                                 class="btn-block btn-color">Login
                             </button> </div>
                         <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted">Forgot
