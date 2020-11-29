@@ -43,8 +43,8 @@ $(document).ready(function () {
             window.location.href = '/report'
           }
           else {
-            $("#badAttempt").text("Invalid login credentials.")
             //bad login attemp
+            $("#badAttempt").text("Invalid login credentials.")
           }
         });
     }

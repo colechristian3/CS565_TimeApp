@@ -24,7 +24,8 @@ var mockData =
     lat: 241.10581
   },
   currentJob: null,
-  email: "someemail@gmail.com",
+  email: "email@gmail.com",
+  password: "password",
   phoneNumber: "+19713376569",
   jobs: [
     {
@@ -139,8 +140,8 @@ var mockData =
     ],
     [
       {
-        date: "11/8/2020",
-        job: "The gig 1",
+        date: "11/15/2020",
+        job: "The gig 2",
         in: "12:30 PM",
         out: "8:30 PM",
         reg: 8,
@@ -149,8 +150,8 @@ var mockData =
         grossPay: 194.00
       },
       {
-        date: "11/9/2020",
-        job: "The gig 1",
+        date: "11/16/2020",
+        job: "The gig 2",
         in: "12:30 PM",
         out: "8:30 PM",
         reg: 8,
@@ -159,8 +160,8 @@ var mockData =
         grossPay: 194.00
       },
       {
-        date: "11/10/2020",
-        job: "The gig 1",
+        date: "11/17/2020",
+        job: "The gig 2",
         in: "12:30 PM",
         out: "8:30 PM",
         reg: 8,
@@ -169,8 +170,8 @@ var mockData =
         grossPay: 194.00
       },
       {
-        date: "11/11/2020",
-        job: "The gig 1",
+        date: "11/18/2020",
+        job: "The gig 2",
         in: "12:30 PM",
         out: "8:30 PM",
         reg: 8,
@@ -179,8 +180,8 @@ var mockData =
         grossPay: 194.00
       },
       {
-        date: "11/12/2020",
-        job: "The gig 1",
+        date: "11/19/2020",
+        job: "The gig 2",
         in: "12:30 PM",
         out: "8:30 PM",
         reg: 8,
@@ -189,8 +190,8 @@ var mockData =
         grossPay: 194.00
       },
       {
-        date: "11/13/2020",
-        job: "The gig 1",
+        date: "11/20/2020",
+        job: "The gig 2",
         in: "12:30 PM",
         out: "8:30 PM",
         reg: 8,
@@ -199,8 +200,8 @@ var mockData =
         grossPay: 194.00
       },
       {
-        date: "11/14/2020",
-        job: "The gig 1",
+        date: "11/21/2020",
+        job: "The gig 2",
         in: "12:30 PM",
         out: "8:30 PM",
         reg: 8,
@@ -313,9 +314,14 @@ app.post("/clock-out", function (req, res) {
 app.post("/login-check", function (req, res) {
   const username = req.body.username
   const password = req.body.password
+  if (username === mockData.email && password === mockData.password) {
+    res.json("200")
+  }
+  else {
+    res.json("405")
+  }
   //This is where the database will be called and bcrypt compare issued to see if login was valid. Also will asign session token
   //if login was good
-  res.json("200")
 })
 
 

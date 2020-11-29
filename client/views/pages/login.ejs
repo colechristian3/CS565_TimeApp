@@ -21,14 +21,16 @@
                         <div style="color:red; text-align: center;" id="badAttempt"></div>
                         <div class="form-group"> <label class="checker form-control-label text-muted">Username</label>
                             <input data-toggle="tooltip" data-placement="top" title="Username required" type="text"
-                                id="username" name="email" placeholder="you@youremail.com" class="form-control" />
+                                id="username" name="email" placeholder="you@youremail.com" class="form-control"
+                                aria-required="true" />
                         </div>
                         <div class="form-group"> <label class="checker form-control-label text-muted">Password</label>
                             <input data-toggle="tooltip" data-placement="top" title="Password required" type="password"
-                                id="password" name="password" placeholder="Password" class="form-control" />
+                                id="password" name="password" placeholder="Password" class="form-control"
+                                aria-required="true" />
                         </div>
                         <div class="row justify-content-center my-3 px-3"> <button type="submit" id="loginButton"
-                                class="btn-block btn-color">Login
+                                class="btn-block btn-color" aria-label="login buttone">Login
                             </button> </div>
                         <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted">Forgot
                                     Password?</small></a> </div>
