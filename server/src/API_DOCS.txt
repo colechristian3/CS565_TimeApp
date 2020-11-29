@@ -1,0 +1,5 @@
+/** Describes all the APIs that will be used in this application **/
+let Path  = '' //The path from the root domain
+let method = '' //POST, PUT, GET, DELETE, 
+
+/** Authentication **/
