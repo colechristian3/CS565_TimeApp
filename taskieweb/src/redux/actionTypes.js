@@ -1,0 +1,7 @@
+export const ADD_ORGANIZATION = "ADD_ORGANIZATION";
+export const ADD_NEW_SIGN_UP = "ADD_NEW_SIGN_UP";
+
+export const ADD_NEW_USER = "ADD_NEW_USER";
+
+export const SET_USER = "ADD_NEW_USER";
+export const SET_ORGANIZATION = "SET_ORGANIZATION"

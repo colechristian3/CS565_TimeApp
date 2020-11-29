@@ -1,0 +1,52 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for GCP Time App",
+  "main": "app.ts",
+  "scripts": {
+    "start": "nodemon app.ts",
+    "build": "tsc --project ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN CS565_TimeApp",
+  "dependencies": {
+    "@types/lodash": "^4.14.163",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "express-openid-connect": "^2.0.0",
+    "jwks-rsa": "^1.11.0",
+    "lodash": "^4.17.20",
+    "npm": "^6.14.8",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.28",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/express-jwt": "0.0.42",
+    "@types/node": "^14.14.5",
+    "module-alias": "^2.2.2",
+    "nodemon": "^2.0.6",
+    "pg": "^8.4.2",
+    "ts-node": "^9.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.0.5"
+  },
+  "_moduleAliases": {
+    "@src": "build/"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "node -r tsconfig-paths/register -r ts-node/register ./app.ts",
+    "ext": "ts, js"
+  }
+}

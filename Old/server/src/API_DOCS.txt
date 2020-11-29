@@ -1,0 +1,52 @@
+Describes all the APIs that will be used in this application
+Version 1.0.0
+
+PATH        //The path from the root domain
+METHOD      //POST, PUT, GET, DELETE
+REQ     //JSON body format to be sent to the server
+RES     //JSON body for the response from the server
+CODE     //The code that the server responds with
+
+
+SECTION 1: User operations
+    1. Create a user
+        METHOD: POST
+        PATH: /v1/user/create
+        REQBODY: {
+
+        }
+
+SECTION 2: Organizations operations
+    1. Create an organization
+        METHOD: POST
+        PATH: /v1/organization
+        REQBODY: {
+
+        }
+
+SECTION 3: Auth operations
+    1. API for sign in user
+        METHOD: POST via HTTPS
+        PATH: /v1/auth
+        REQ.header: {
+
+        }
+        REQ.body: {
+            "sessionId": "sessionId",   //required
+            "username": "username",     //required
+            "password": "password",     //required
+            "ip": "ip_address",
+            "deviceOS": "deviceOS"
+        }
+        RES.header: {
+            Authorization: Bearer <token>   //JWT Token
+        }
+        RESBODY: {
+            "userUuid": "userUuid",
+            "password": "password",     //required
+            "ip": "ip_address",
+            "deviceOS": "deviceOS"
+        }
+
+
+

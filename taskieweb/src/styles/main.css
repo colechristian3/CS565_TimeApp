@@ -1,0 +1,322 @@
+/* Light Purple Color: #bf64c1
+Dark Purple: #812d83
+ Green Color: #e6ff8a
+ */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.gradient-background{
+    background: rgb(191,100,193);
+    background: linear-gradient(171deg, rgba(191,100,193,1) 18%, rgba(230,255,138,1) 69%);
+}
+
+.white-background {
+    background: white;
+}
+
+.full-window {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.pad-15 {
+    padding: 15px;
+}
+
+.radius20 {
+    border-radius: 20px;
+}
+
+select {
+    text-align: center;
+    text-align-last: center;
+    /* webkit*/
+}
+option {
+    text-align: left;
+    /* reset to left*/
+}
+
+.select-input {
+    border-radius: 12px;
+    border-color: #d2d2d2;
+    color: #d2d2d2;
+    font-weight: lighter;
+    border-width: 1px;
+    background-color: white;
+    padding: 5px;
+    border-style: solid;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.select-input:focus{
+    outline-width: 0;
+    border-color: #404040;
+    color: #404040;
+
+}
+.select-input-invalid {
+    border-color: #ec2929;
+    color: #ec2929;
+    font-weight: lighter;
+    border-radius: 12px;
+    border-width: 1px;
+    background-color: white;
+    padding: 5px;
+    border-style: solid;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.select-input-invalid:focus{
+    outline-width: 0;
+}
+.select-input-invalid:focus::placeholder {
+    color: transparent;
+}
+
+.text-input {
+    border-radius: 12px;
+    border-color: #d2d2d2;
+    color: #d2d2d2;
+    font-weight: lighter;
+    border-width: 1px;
+    background-color: white;
+    padding: 5px;
+    border-style: solid;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.text-input:focus{
+    outline-width: 0;
+    border-color: #404040;
+    color: #404040;
+
+}
+.text-input:focus::placeholder {
+    color: transparent;
+}
+.text-input-invalid {
+    border-color: #ec2929;
+    color: #ec2929;
+    font-weight: lighter;
+    border-radius: 12px;
+    border-width: 1px;
+    background-color: white;
+    padding: 5px;
+    border-style: solid;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.text-input-invalid:focus{
+    outline-width: 0;
+}
+.text-input-invalid:focus::placeholder {
+    color: transparent;
+}
+
+.basic-button-lightgrey {
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    background: #bfbfbf;
+    border: none;
+}
+.basic-button-lightgrey:hover{
+    background: #a7a7a7;
+}
+.basic-button-lightgrey:focus{
+    background: #a7a7a7;
+    outline-width: 0;
+}
+
+.basic-button-lightgrey-disabled{
+    background: #bfbfbf;
+    color: white;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    cursor: none;
+}
+.basic-button-lightgrey-disabled:focus{
+    outline-width: 0;
+}
+
+.basic-button-purple {
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    background: #bf64c1;
+    border: none;
+}
+.basic-button-purple:hover{
+    background: #812d83;
+}
+.basic-button-purple:focus{
+    background: #812d83;
+    outline-width: 0;
+}
+
+.basic-button-purple-disabled{
+    background: #812d83;
+    color: grey;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    cursor: none;
+}
+.basic-button-purple-disabled:focus{
+    outline-width: 0;
+}
+
+
+
+.text-button {
+    background: none;
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+    margin: 5px;
+    color: grey;
+}
+.text-button:focus{
+    color: black;
+    outline-width: 0;
+}
+.text-button:hover{
+    color: black;
+    outline-width: 0;
+    text-decoration: underline;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+.error-text {
+    color: #ec2929
+}
+
+.text-align-left{
+    text-align: left;
+}
+
+.shadow {
+    -webkit-box-shadow: 2px 2px 2px 2px lightgray;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    2px 2px 2px 2px lightgray;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         2px 2px 2px 2px lightgray;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.center-horizontal {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.center-vertical {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.grid-container {
+    display: grid;
+}
+
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #812d83; /* Blue */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media only screen and (min-width: 320px) {
+    .org-info-card {
+        margin-top: 10px;
+        width: 300px;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    .org-info-card {
+        margin-top: 10px;
+        width: 500px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .org-info-card {
+        margin-top: 10px;
+        width: 700px;
+    }
+}
+
+.purple-button {
+    background: #bf64c1;
+    border-color: #bf64c1;
+}
+
+.purple-button:hover {
+    background: #702671;
+    border-color: #702671;
+}
+
+.height25 {
+    height: 25px;
+}
+

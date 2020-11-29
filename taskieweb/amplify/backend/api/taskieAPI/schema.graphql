@@ -1,0 +1,92 @@
+type Task
+  @model
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Managers"], queries: null, mutations: [create, update, delete] }
+      { allow: groups, groups: ["Employees"], queries: [get, list], mutations: null }
+    ]
+  ) {
+  id: ID!
+  title: String!
+  description: String
+  status: String
+}
+type PrivateNote @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  content: String!
+}
+
+type Organization @model {
+  id: ID!
+  name: String!
+  owner: [OrganizationUser] @connection(name: "OrganizationUser")
+  phone: AWSPhone
+  industry: String!
+  website: AWSURL
+  logo: AWSURL
+  address: [OrganizationAddress] @connection(name: "OrganizationAddress")
+}
+
+type User @model {
+  id: ID!
+  organization: [OrganizationUser] @connection(name: "UserOrganization")
+  firstName: String!
+  middleName: String
+  lastName: String!
+  username: String!
+  email: AWSEmail!
+  phone: AWSPhone!
+  picture: AWSURL
+  payType: [UserPayType] @connection(name: "UserPayType")
+  payRate: Float
+  isClockedIn: Boolean
+  address: [UserAddress] @connection(name: "UserAddress")
+  userConfirmed: Boolean
+}
+
+type PayType @model {
+    id: ID!
+    name: String!
+    value: String!
+    user: [UserPayType] @connection(name: "PayTypeUser")
+}
+
+type Address @model {
+  id: ID!
+  streetOne: String
+  streetTwo: String
+  city: String
+  state: String
+  zip: String
+  country: String
+  googleMapId: String
+  lat: String
+  long: String
+  user: [UserAddress] @connection(name: "AddressUser")
+  organization: [OrganizationAddress] @connection(name: "AddressOrganization")
+}
+
+type OrganizationUser @model {
+  id: ID!
+  organization: Organization @connection(name: "OrganizationUser")
+  user: User @connection(name: "UserOrganization", sortField: "name")
+}
+
+type OrganizationAddress @model {
+  id: ID!
+  organization: Organization @connection(name: "OrganizationAddress", sortField: "name")
+  address: Address @connection(name: "AddressOrganization")
+}
+
+type UserAddress @model {
+  id: ID!
+  user: User @connection(name: "UserAddress", sortField: "name")
+  address: Address @connection(name: "AddressUser")
+}
+
+type UserPayType @model {
+  id: ID!
+  user: User @connection(name: "UserPayType", sortField: "name")
+  payType: PayType @connection(name: "PayTypeUser")
+}
+
