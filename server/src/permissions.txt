@@ -1,0 +1,106 @@
+Permissions: (Create, Update, Delete, Read) (Admin, Basic, Server) (Self, Others)
+- Create  Employee (Admin, Server)
+- Update Employee [Self: Basic/Admin/Server Others: Admin/Server]
+- Delete Employee (Admin/Server)
+- Read Employee [Self: Basic/Admin/Server Others: Admin/Server]
+
+- Create Workgroups (Admin/Server)
+- Update Workgroups (Admin/Server)
+- Delete Workgroups (Admin/Server)
+- Read Workgroups (Admin/Server)
+
+- Create Auth (Server)
+- Update Auth (Server)
+- Delete Auth (Basic/Admin/Server)
+- Read Auth (Basic/Admin/Server)
+
+PERMISSIONS
+- Create (Admin/Server)
+- Update (Admin/Server)
+- Delete (Admin/Server)
+- Read (Admin/Server)
+
+ROLE
+- Create (Admin/Server)
+- Update (Admin/Server)
+- Delete (Admin/Server)
+- Read (Basic/Admin/Server)
+
+EMPLOYEE_NOTES
+- Create (Admin/Server)
+- Update (Admin/Server)
+- Delete (Admin/Server)
+- Read (Admin/Server)
+
+PROJECT_NOTES
+- Create (Basic/Admin/Server)
+- Update [Self: Basic/Admin/Server Others: Admin/Server]
+- Delete [Self: Basic/Admin/Server Others: Admin/Server]
+- Read (Basic/Admin/Server)
+
+TIMESHEET_RECORD
+- Create [Self: Basic/Admin/Server Others: Admin/Server]
+- Update [Self: Basic/Admin/Server Others: Admin/Server] //But only when clocking out
+- Delete [Self: Basic/Admin/Server Others: Admin/Server]
+- Read [Self: Basic/Admin/Server Others: Admin/Server]
+
+PROJECT
+- Create (Admin/Server)
+- Update (Admin/Server)
+- Delete (Admin/Server)
+- Read (Basic/Admin/Server) //But limtited to the information
+
+PROJECT_STATUS
+- Create (Admin/Server)
+- Update (Admin/Server)
+- Delete (Admin/Server)
+- Read (Basic/Admin/Server)
+
+PROJECT_TAG
+- Create (Admin/Server)
+- Update (Admin/Server)
+- Delete (Admin/Server)
+- Read (Basic/Admin/Server)
+
+SESSION
+- Create (Server)
+- Update (Server)
+- Delete (Server)
+- Read (Admin/Server)
+
+SESSION_HISTORY
+- Create (Server)
+- Update (Server)
+- Delete (Server)
+- Read (Admin/Server)
+
+ADDRESS
+- Create [Self: Basic/Admin/Server Others: Admin/Server]
+- Update [Self: Basic/Admin/Server Others: Admin/Server]
+- Delete [Self: Basic/Admin/Server Others: Admin/Server]
+- Read (Basic/Admin/Server)
+
+CUSTOMER
+- Create (Admin/Server)
+- Update (Admin/Server)
+- Delete (Admin/Server)
+- Read (Admin/Server)
+
+LOGS
+- Create (Server)
+- Update (Server)
+- Delete (Server)
+- Read (Admin/Server)
+
+PASSWORD
+- Create (Server)
+- Update (Server)
+- Delete (Server)
+- Read (Server)
+
+CUSTOMER_NOTE
+- Create (Admin/Server)
+- Update (Admin/Server)
+- Delete (Admin/Server)
+- Read (Admin/Server)
+
